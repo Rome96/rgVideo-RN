@@ -5,9 +5,9 @@ import {
     View,
     Text
 } from 'react-native'
-import Layout from '../container/SuggestionListLayout'
-import Empty from '../components/Empty'
-import Separator from '../components/VerticalSeparator'
+import Layout from './container/SuggestionListLayout'
+import Empty from './Empty'
+import Separator from './VerticalSeparator'
 
 
 const list = [
