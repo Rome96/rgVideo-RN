@@ -1,15 +1,17 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Home from './src/screens/Home';
+import Header from './src/components/Header';
+import Suggestion from './src/components/SuggestionList';
 
 export default class App extends React.Component {
   render() {
     return (
         <Home>
-          <Text>Header</Text>
+          <Header/>
           <Text>Buscador</Text>
           <Text>Categoria</Text>
-          <Text>Sugerencias</Text>
+          <Suggestion/>
         </Home>
 
     );
