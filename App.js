@@ -1,17 +1,38 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
 import Home from './src/screens/Home';
 import Header from './src/components/Header';
-import SuggestionList from './src/components/suggestion/SuggestionList';
+import SuggestionList from './src/components/suggestion/container/SuggestionList';
+import api from './src/components/api/api';
 
 export default class App extends React.Component {
+  state = {
+    suggestionListMovies: [],
+    loading: true
+  }
+ async componentDidMount(){
+      const movies = await api.getSuggestion(10)
+      console.log(movies)
+      this.setState({
+        suggestionListMovies: movies,
+        loading: false
+      })
+  }
+
   render() {
+    const {suggestionListMovies, loading} = this.state
     return (
         <Home>
           <Header/>
-          <Text>Buscador</Text>
-          <Text>Categoria</Text>
-          <SuggestionList/>
+         
+          {
+            loading ? <View style={styles.container}>
+                <ActivityIndicator size='large' color='#ff050' />
+            </View>
+            :
+            <SuggestionList movies={suggestionListMovies} />
+          }
+         
         </Home>
 
     );

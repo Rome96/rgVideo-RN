@@ -7,21 +7,24 @@ import {
 } from 'react-native'
 
 function Suggestion (props) {
+    console.log('LOS PROPS A SUGGESTION:::', props)
     return (
         <View style={styles.container}>
-            <View style={styles.left}>
+           <View style={styles.left}>
                 <Image
                     style={styles.cover}
-                    source={require('../../../assets/avengers.jpg')}
+                    source={{
+                        uri: props.medium_cover_image
+                        }}
                 />
                 <View style={styles.genreContent}>
-                    <Text style={styles.genreText}>Acción</Text>
+                    <Text style={styles.genreText}>{props.genres[0]}</Text>
                 </View>
             </View>
             <View style={styles.rigth}>
-                <Text style={styles.title}>Avengers</Text>
-                <Text style={styles.year}>2019</Text>
-                <Text style={styles.rating}>5 Estrellas</Text>
+                <Text style={styles.title}>{props.title}</Text>
+                <Text style={styles.year}>{props.year}</Text>
+                <Text style={styles.rating}>{props.rating}</Text>
             </View>
         </View>
     )
@@ -39,11 +42,11 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between'
     },
     rigth: {
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
     },
     cover: {
-        height: 100,
-        width: 150,
+        height: 150,
+        width: 100,
         resizeMode: 'contain',
         //margin: 3 
     },
