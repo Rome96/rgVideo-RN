@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import {
     StyleSheet,
     FlatList,
@@ -8,7 +8,7 @@ import {
 import Layout from './container/SuggestionListLayout'
 import Empty from './Empty'
 import Separator from './VerticalSeparator'
-
+import Suggestion from './Suggestion';
 
 const list = [
     {
@@ -24,13 +24,11 @@ const list = [
         key: 3
     }
 ]
-class Suggestion extends Component {
+class SuggestionList extends Component {
 
-    _renderItem(item) {
-        return(
-            <View>
-                <Text>{item.title}</Text>
-            </View>
+    _renderItem = ({ item }) => {
+        return (
+            <Suggestion {...item} />
         )
     }
     _keyExtractor = (item) => String(item.key)
@@ -38,22 +36,22 @@ class Suggestion extends Component {
     _renderEmpty = () => <Empty text='No hay sugerencias disponibles...' />
 
     _itemSeparator = () => <Separator color='red' />
-   
 
-    render(){
-        return(
-           <Layout
-                title = 'Recomendado para tí'
-           >
+
+    render() {
+        return (
+            <Layout
+                title='Recomendado para tí'
+            >
                 <FlatList
-                data={list}
-                ListEmptyComponent = {() => this._renderEmpty()}
-              // ListEmptyComponent = {() => <Text>No Hay sugerencias disponibles</Text>}
-                ItemSeparatorComponent = {() => this._itemSeparator()}
-                renderItem={({ item }) => this._renderItem(item) }
-                keyExtractor={this._keyExtractor}
-            />
-           </Layout>
+                    data={list}
+                    ListEmptyComponent={() => this._renderEmpty()}
+                    // ListEmptyComponent = {() => <Text>No Hay sugerencias disponibles</Text>}
+                    ItemSeparatorComponent={() => this._itemSeparator()}
+                    renderItem={({ item }) => this._renderItem(item)}
+                    keyExtractor={this._keyExtractor}
+                />
+            </Layout>
         )
     }
 }
@@ -65,4 +63,4 @@ const styles = StyleSheet.create({
     }
 })
 
-export default Suggestion
+export default SuggestionList
