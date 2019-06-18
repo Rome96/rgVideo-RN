@@ -7,7 +7,6 @@ import {
 } from 'react-native'
 
 function Suggestion (props) {
-    console.log('LOS PROPS A SUGGESTION:::', props)
     return (
         <View style={styles.container}>
            <View style={styles.left}>

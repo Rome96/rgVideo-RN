@@ -6,8 +6,8 @@ import {
     Text
 } from 'react-native'
 import Layout from './SuggestionListLayout'
-import Empty from '../Empty'
-import Separator from '../VerticalSeparator'
+import Empty from '../../../utils/Empty'
+import Separator from '../../../utils/VerticalSeparator'
 import Suggestion from '../Suggestion';
 
 class SuggestionList extends Component {

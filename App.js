@@ -12,7 +12,6 @@ export default class App extends React.Component {
   }
  async componentDidMount(){
       const movies = await api.getSuggestion(10)
-      console.log(movies)
       this.setState({
         suggestionListMovies: movies,
         loading: false
