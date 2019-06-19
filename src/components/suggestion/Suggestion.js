@@ -31,10 +31,8 @@ function Suggestion (props) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
         flexDirection: 'row',
-        justifyContent: 'space-between',
-        paddingHorizontal: 10
+        padding: 10
     },
     left: {
         flexDirection: 'column-reverse',
@@ -42,24 +40,25 @@ const styles = StyleSheet.create({
     },
     rigth: {
         justifyContent: 'space-between',
+        paddingLeft: 10,
     },
     cover: {
         height: 150,
         width: 100,
         resizeMode: 'contain',
-        //margin: 3 
+        borderRadius: 5,
     },
     genreContent:{
-     backgroundColor: 'black',
-     left: 0,
-     alignSelf: 'flex-start',
-     borderRadius: 5,
-     marginTop: 3
+        position: 'absolute',
+        left: 0,
+        top: 0,
+        backgroundColor: 'black',
+        paddingVertical: 5,
+        paddingHorizontal: 7,
+        borderRadius: 5
     },
     genreText: {
         color: 'white',
-        paddingVertical: 5,
-        paddingHorizontal: 7,
         fontSize: 12,
     },
     title: {

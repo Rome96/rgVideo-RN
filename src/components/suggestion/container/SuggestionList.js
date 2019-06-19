@@ -3,7 +3,8 @@ import {
     StyleSheet,
     FlatList,
     View,
-    Text
+    Text,
+    ScrollView
 } from 'react-native'
 import Layout from './SuggestionListLayout'
 import Empty from '../../../utils/Empty'
@@ -14,8 +15,8 @@ class SuggestionList extends Component {
 
     _keyExtractor = item => String(item.id)
     _renderEmpty = () => <Empty text='No hay sugerencias disponibles...' />
-    _itemSeparator = () => <Separator color='red' />
-    _renderItem = ({item}) => {
+    _itemSeparator = () => <Separator color='#95adbe' />
+    _renderItem = ({ item }) => {
         return (
             <Suggestion {...item} />
         )
@@ -25,14 +26,16 @@ class SuggestionList extends Component {
             <Layout
                 title='Recomendado para tí'
             >
-                <FlatList
-                    data={this.props.movies}
-                    ListEmptyComponent={() => this._renderEmpty()}
-                    // ListEmptyComponent = {() => <Text>No Hay sugerencias disponibles</Text>}
-                    ItemSeparatorComponent={() => this._itemSeparator()}
-                    renderItem={(item) => this._renderItem(item)}
-                    keyExtractor={this._keyExtractor}
-                />
+                <ScrollView>
+                    <FlatList
+                        data={this.props.movies}
+                        ListEmptyComponent={() => this._renderEmpty()}
+                        // ListEmptyComponent = {() => <Text>No Hay sugerencias disponibles</Text>}
+                        ItemSeparatorComponent={() => this._itemSeparator()}
+                        renderItem={(item) => this._renderItem(item)}
+                        keyExtractor={this._keyExtractor}
+                    />
+                </ScrollView>
             </Layout>
         )
     }
