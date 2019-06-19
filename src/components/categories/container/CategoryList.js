@@ -8,6 +8,8 @@ import {
 import Empty from '../../../utils/Empty'
 import Separator from '../../../utils/VerticalSeparator'
 import Suggestion from '../../suggestion/Suggestion';
+import Layout from './CategoryListLayout'
+
 
 class CategoryList extends Component {
   _keyExtractor = item => String(item.id)
@@ -20,7 +22,10 @@ class CategoryList extends Component {
   }
   render() {
     return (
-        <FlatList
+       <Layout
+          title='Categorías'
+       >
+          <FlatList
           data={this.props.movies}
           ListEmptyComponent={() => this._renderEmpty()}
           // ListEmptyComponent = {() => <Text>No Hay sugerencias disponibles</Text>}
@@ -29,6 +34,7 @@ class CategoryList extends Component {
           keyExtractor={this._keyExtractor}
           horizontal
         />
+       </Layout>
     )
   }
 }
