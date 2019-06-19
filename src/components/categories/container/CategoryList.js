@@ -7,7 +7,7 @@ import {
 } from 'react-native'
 import Empty from '../../../utils/Empty'
 import Separator from '../../../utils/HorizontalSeparator'
-import Suggestion from '../../suggestion/Suggestion';
+import Category from '../Category';
 import Layout from './CategoryListLayout'
 
 
@@ -17,7 +17,7 @@ class CategoryList extends Component {
   _itemSeparator = () => <Separator/>
   _renderItem = ({ item }) => {
       return (
-          <Suggestion {...item} />
+          <Category {...item} />
       )
   }
   render() {

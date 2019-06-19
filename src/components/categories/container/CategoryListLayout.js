@@ -9,7 +9,7 @@ import {
 function CategoryListLayout(props) {
     return (
         <ImageBackground
-            source={require('../../../../assets/backgronund.png')}
+            source={require('../../../../assets/background.png')}
             style={styles.container}
         >
             <Text style={styles.titleStyle}>{props.title}</Text>
