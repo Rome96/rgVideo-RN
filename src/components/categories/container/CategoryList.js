@@ -6,7 +6,7 @@ import {
   Text
 } from 'react-native'
 import Empty from '../../../utils/Empty'
-import Separator from '../../../utils/VerticalSeparator'
+import Separator from '../../../utils/HorizontalSeparator'
 import Suggestion from '../../suggestion/Suggestion';
 import Layout from './CategoryListLayout'
 
@@ -14,7 +14,7 @@ import Layout from './CategoryListLayout'
 class CategoryList extends Component {
   _keyExtractor = item => String(item.id)
   _renderEmpty = () => <Empty text='No hay sugerencias disponibles...' />
-  _itemSeparator = () => <Separator color='#95adbe' />
+  _itemSeparator = () => <Separator/>
   _renderItem = ({ item }) => {
       return (
           <Suggestion {...item} />
@@ -23,7 +23,7 @@ class CategoryList extends Component {
   render() {
     return (
        <Layout
-          title='Categorías'
+          title='Categorias'
        >
           <FlatList
           data={this.props.movies}
@@ -33,6 +33,7 @@ class CategoryList extends Component {
           renderItem={(item) => this._renderItem(item)}
           keyExtractor={this._keyExtractor}
           horizontal
+          showsHorizontalScrollIndicator={false}
         />
        </Layout>
     )

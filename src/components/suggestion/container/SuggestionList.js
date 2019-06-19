@@ -34,6 +34,7 @@ class SuggestionList extends Component {
                         ItemSeparatorComponent={() => this._itemSeparator()}
                         renderItem={(item) => this._renderItem(item)}
                         keyExtractor={this._keyExtractor}
+                        showsVerticalScrollIndicator={false}
                     />
                 </ScrollView>
             </Layout>

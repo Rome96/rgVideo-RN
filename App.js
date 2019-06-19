@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, ActivityIndicator, ScrollView } from 'react-native';
 import Home from './src/screens/Home';
 import Header from './src/components/Header';
 import SuggestionList from './src/components/suggestion/container/SuggestionList';
@@ -28,7 +28,7 @@ export default class App extends React.Component {
     return (
       <Home>
         <Header />
-
+        <ScrollView>
         {
           loading ? <View style={styles.container}>
             <ActivityIndicator size='large' color='#ff050' />
@@ -39,6 +39,7 @@ export default class App extends React.Component {
               <SuggestionList movies={suggestionListMovies} />
             </React.Fragment>
         }
+        </ScrollView>
 
       </Home>
 
