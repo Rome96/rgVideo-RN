@@ -4,8 +4,8 @@ import Home from './src/screens/Home';
 import Header from './src/components/Header';
 import SuggestionList from './src/components/suggestion/container/SuggestionList';
 import CategoryList from './src/components/categories/container/CategoryList';
-
 import api from './src/components/api/api';
+import Player from './src/components/player/container/Player';
 
 export default class App extends React.Component {
   state = {
@@ -28,17 +28,18 @@ export default class App extends React.Component {
     return (
       <Home>
         <Header />
+        <Player/>
         <ScrollView>
-        {
-          loading ? <View style={styles.container}>
-            <ActivityIndicator size='large' color='#ff050' />
-          </View>
-            :
-            <React.Fragment>
-              <CategoryList movies={categoriesList} />
-              <SuggestionList movies={suggestionListMovies} />
-            </React.Fragment>
-        }
+          {
+            loading ? <View style={styles.container}>
+              <ActivityIndicator size='large' color='#ff050' />
+            </View>
+              :
+              <React.Fragment>
+                <CategoryList movies={categoriesList} />
+                <SuggestionList movies={suggestionListMovies} />
+              </React.Fragment>
+          }
         </ScrollView>
 
       </Home>
