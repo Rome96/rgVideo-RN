@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native'
+import { 
+  StyleSheet,
+  ActivityIndicator
+ } from 'react-native'
 import { Video } from 'expo';
 import Layout from '../Layout'
 
@@ -16,8 +19,15 @@ class Player extends Component {
             resizeMode='contain'
             shouldPlay
             isLooping
+            useNativeControls={true}
             style={styles.video}
           />
+        }
+        loader={
+          <ActivityIndicator
+           color='red'
+           size="large"
+           />
         }
       />
     )
